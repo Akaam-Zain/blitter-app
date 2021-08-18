@@ -1,0 +1,39 @@
+.bleetBox {
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-bottom: 8px solid var(--blitter-background);
+}
+
+.bleetBox > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.bleetBox__input {
+  padding: 20px;
+  display: flex;
+}
+
+.bleetBox__input > input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+}
+
+.bleetBox__bleetButton {
+  background-color: var(--blitter-color) !important;
+  color: white !important;
+  font-weight: 900 !important;
+  border: none !important;
+  border-radius: 30px !important;
+  height: 35px !important;
+  width: 100px;
+  margin-top: 20px !important;
+  margin-left: auto !important;
+}
+
+.bleetBox__imageInput {
+  border: none;
+  padding: 10px;
+}

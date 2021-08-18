@@ -1,0 +1,7 @@
+.post {
+}
+
+.post__body > img {
+  border-radius: 20px;
+  height: 10px;
+}

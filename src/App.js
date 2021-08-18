@@ -1,16 +1,18 @@
 import "./App.css";
 import Sidebar from "./Sidebar";
+import Feed from "./Feed";
+import Widget from "./Widget";
 
 function App() {
   return (
-    <div>
-      <h1>Hello Twitter World</h1>
-
+    <div className="app">
       {/*Side Bar */}
       <Sidebar />
 
       {/*Feed */}
+      <Feed />
       {/*Widget */}
+      <Widget />
     </div>
   );
 }
