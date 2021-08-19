@@ -1,11 +1,26 @@
 import React from "react";
 import "./Widget.css";
+import SearchIcon from "@material-ui/icons/Search";
+import { TwitterTimelineEmbed, TwitterTweetEmbed } from "react-twitter-embed";
 
 function Widget() {
   return (
-    <div>
-      <div className="widgets">
-        <h1>Widgets go here</h1>
+    <div className="widgets">
+      <div className="widgets__input">
+        <SearchIcon className="widgets__searchIcon" />
+        <input placeholder="Search Twitter" type="text" />
+      </div>
+
+      <div className="widgets__widgetContainer">
+        <h2>What's happening</h2>
+
+        <TwitterTweetEmbed tweetId={"858551177860055040"} />
+
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="cleverqazi"
+          options={{ height: 400 }}
+        />
       </div>
     </div>
   );

@@ -1,7 +1,33 @@
 .post {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--blitter-background);
+  padding-bottom: 10px;
+  margin-top: 50px;
 }
 
-.post__body > img {
+.post__img {
   border-radius: 20px;
-  height: 10px;
+  width: 90%;
+}
+
+.post__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post__badge {
+  color: var(--blitter-color) !important;
+  font-size: 17px !important;
+}
+
+.post__username {
+  font-weight: 600;
+  font-size: 14px;
+  color: grey;
+}
+
+.post__avatar {
+  padding: 20px;
 }
