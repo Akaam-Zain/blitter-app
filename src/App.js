@@ -1,19 +1,26 @@
 import React from "react";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import LoginPage from "./screens/LoginScreen";
+import HomeScreen from "./screens/HomeScreen";
+
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import Feed from "./components/Feed";
-import Widget from "./components/Widget";
 
 function App() {
   return (
     <div className="app">
-      {/*Side Bar */}
-      <Sidebar />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            {/** Login */}
 
-      {/*Feed */}
-      <Feed />
-      {/*Widget */}
-      <Widget />
+            <LoginPage />
+          </Route>
+          <Route path="/home">
+            {/*Home */}
+            <HomeScreen />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

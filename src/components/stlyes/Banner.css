@@ -1,0 +1,11 @@
+.banner {
+  flex: 0.6;
+  background-color: red;
+  background-image: url("https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png");
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+.banner > img {
+  width: 100%;
+}

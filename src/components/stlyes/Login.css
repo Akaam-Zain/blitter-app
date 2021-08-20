@@ -1,0 +1,59 @@
+.login {
+  flex: 0.5;
+  background-color: black;
+  padding: 50px;
+}
+
+.bleet__icon {
+  color: white;
+  margin-top: 50px;
+  font-size: 50px !important;
+}
+
+.login > h2 {
+  color: white;
+  font-size: 70px;
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
+
+.login > h4 {
+  color: white;
+  font-size: 30px;
+}
+
+.login > p {
+  font-size: 12px;
+  padding-top: 10px;
+  padding-right: 230px;
+  margin-top: 20px;
+  color: rgb(128, 126, 126);
+}
+
+.login__btn {
+  background-color: white !important;
+  font-weight: bold !important;
+  border-radius: 0.8 !important;
+  width: 25rem;
+  height: 3.5em;
+  border-radius: 30px !important;
+  margin-top: 30px !important;
+}
+
+.login__btn_googleicom {
+  width: 30px;
+  padding-right: 10px;
+}
+
+.login__text {
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.login__text > a {
+  text-decoration: none;
+  color: var(--blitter-color);
+}
