@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import BleetBox from "./BleetBox";
 import Post from "./Post";
-import "./Feed.css";
-import db from "./firbebase";
+import "./stlyes/Feed.css";
+import db from "../firebase";
 import FlipMove from "react-flip-move";
 
 function Feed() {
+  const regex = /#+([a-zA-Z0-9_]+)/gi;
+  const text = "hello this is a test. #hello #hashtags #one #two";
+  var newText = text.match(regex);
+
+  console.log(newText);
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

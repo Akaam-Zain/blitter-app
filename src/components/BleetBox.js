@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Avatar, Button } from "@material-ui/core";
-import "./BleetBox.css";
-import db from "./firbebase";
+import "./stlyes/BleetBox.css";
+import db from "../firebase";
 
 function BleetBox() {
   const [bleetMessage, setBleetMessage] = useState("");

@@ -5,7 +5,7 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Publish from "@material-ui/icons/Publish";
-import "./Post.css";
+import "./stlyes/Post.css";
 
 const Post = forwardRef(
   ({ id, displayName, username, verified, text, image, avatar }, ref) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import SidebarOption from "./SidebarOption";
-import "./Sidebar.css";
+import "./stlyes/Sidebar.css";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationIcon from "@material-ui/icons/NotificationsNone";
