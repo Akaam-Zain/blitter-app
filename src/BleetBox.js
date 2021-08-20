@@ -7,15 +7,15 @@ function BleetBox() {
   const [bleetMessage, setBleetMessage] = useState("");
   const [bleetImage, setBleetImage] = useState("");
 
-  const sendBleet = (e) => {
+  const sendTweet = (e) => {
     e.preventDefault();
 
     db.collection("posts").add({
-      displayName: "Akaam Zain",
-      username: "@akaamzain",
+      displayName: "Rafeh Qazi",
+      username: "cleverqazi",
       verified: true,
-      text: { bleetMessage },
-      image: { bleetImage },
+      text: bleetMessage,
+      image: bleetImage,
       avatar:
         "https://media-exp1.licdn.com/dms/image/C5603AQFa2X0iNTTvgQ/profile-displayphoto-shrink_200_200/0/1616395735382?e=1634169600&v=beta&t=6wuJKcTEzzmvkl-LLorY5NwHl-J2Zbf7ejBUh6rEGfg",
     });
@@ -42,7 +42,7 @@ function BleetBox() {
           placeholder="Optional: Enter image URL"
         />
 
-        <Button onClick={sendBleet} className="bleetBox__bleetButton">
+        <Button className="bleetBox__bleetButton" onClick={sendTweet}>
           Bleet
         </Button>
       </form>
