@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import "./stlyes/Login.css";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../firebase";
+import { signInWithGoogle } from "../service/SocialAuth";
+import firebase from "firebase";
 
 function Login() {
   return (
@@ -12,11 +16,19 @@ function Login() {
       </div>
 
       {/**  Header Text */}
-      <h2> Happening Now </h2>
+      <h2> Let's Bleet </h2>
       <h4>Join Blitter Today.</h4>
 
       {/**  Buttons */}
-      <Button className="login__btn">
+      <Button
+        className="login__btn"
+        onClick={() => {
+          const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+          const signInWithGoogle = firebase
+            .auth()
+            .signInWithPopup(googleAuthProvider);
+        }}
+      >
         <img
           className="login__btn_googleicom "
           alt=""
