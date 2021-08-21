@@ -4,10 +4,15 @@ import "./stlyes/Login.css";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../firebase";
-import { signInWithGoogle } from "../service/SocialAuth";
-import firebase from "firebase";
+import { googleAuthProvider } from "../service/authMethods";
+import socialMediaAuth from "../service/SocialAuth";
 
 function Login() {
+  const onGoogleSignIn = async (provider) => {
+    const res = await socialMediaAuth(provider);
+    console.log(res);
+  };
+
   return (
     <div className="login">
       {/**  Logo */}
@@ -22,12 +27,7 @@ function Login() {
       {/**  Buttons */}
       <Button
         className="login__btn"
-        onClick={() => {
-          const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-          const signInWithGoogle = firebase
-            .auth()
-            .signInWithPopup(googleAuthProvider);
-        }}
+        onClick={() => onGoogleSignIn(googleAuthProvider)}
       >
         <img
           className="login__btn_googleicom "

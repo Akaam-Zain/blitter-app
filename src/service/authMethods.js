@@ -1,3 +1,3 @@
-import firebase from "../firebase";
+import firebase from "firebase";
 
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
