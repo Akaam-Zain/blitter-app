@@ -6,11 +6,13 @@ import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../firebase";
 import { googleAuthProvider } from "../service/authMethods";
 import socialMediaAuth from "../service/SocialAuth";
+import firebase from "firebase";
 
 function Login() {
+  const history = useHistory();
   const onGoogleSignIn = async (provider) => {
-    const res = await socialMediaAuth(provider);
-    console.log(res);
+    const user = await socialMediaAuth(provider);
+    history.push("/home");
   };
 
   return (

@@ -17,6 +17,19 @@
   margin-top: 10px;
 }
 
+.post__description {
+  display: flow-root;
+  overflow: inherit;
+  max-width: 50ch;
+}
+
+.ethereum__address {
+  text-decoration: none !important;
+  font-size: 14px;
+  color: var(--blitter-color);
+  font-weight: 700;
+}
+
 .post__badge {
   color: var(--blitter-color) !important;
   font-size: 17px !important;

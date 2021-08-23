@@ -6,18 +6,6 @@ import db from "../firebase";
 import FlipMove from "react-flip-move";
 
 function Feed() {
-  const regex = /#+([a-zA-Z0-9_]+)/gi;
-  const text = "hello this is a test. #hello #hashtags #one #two";
-  console.log("input text: " + text);
-  var newText = text.match(regex);
-  console.log(newText);
-
-  const ethereum_reg = /0x[a-fA-F0-9]{40}/;
-  const eth_text =
-    "0x00000000219ab540356cbb839cbe05303d7705fa heal the world make it a better placeeee";
-  var ethMatch = eth_text.match(ethereum_reg);
-  console.log(ethMatch);
-
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

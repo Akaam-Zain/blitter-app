@@ -6,9 +6,21 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Publish from "@material-ui/icons/Publish";
 import "./stlyes/Post.css";
+import { Link } from "react-router-dom";
+import { Typography } from "@material-ui/core";
 
 const Post = forwardRef(
   ({ id, displayName, username, verified, text, image, avatar }, ref) => {
+    const ethereum_reg = /0x[a-fA-F0-9]{40}/;
+    const eth_text =
+      "0x00000000219ab540356cbb839cbe05303d7705fa heal the world make it a better placeeee";
+    let split_text = text.split(" ");
+    let count = 0;
+
+    // function isEthereum(text) {
+
+    // }
+
     return (
       <div className="post" ref={ref}>
         <div className="post__avatar">
@@ -27,7 +39,24 @@ const Post = forwardRef(
               </h3>
             </div>
             <div className="post__description">
-              <p>{text}</p>
+              {split_text.map((split) => {
+                if (split.match(ethereum_reg)) {
+                  return (
+                    <Link
+                      className="ethereum__address"
+                      style={{ display: "inline" }}
+                    >
+                      {split}{" "}
+                    </Link>
+                  );
+                } else {
+                  return (
+                    <Typography style={{ display: "inline" }}>
+                      {split}{" "}
+                    </Typography>
+                  );
+                }
+              })}{" "}
             </div>
           </div>
           <img className="post__img" src={image} alt="" />
