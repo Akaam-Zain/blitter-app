@@ -9,9 +9,11 @@ function Feed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
-    );
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+      );
   }, []);
 
   return (
@@ -25,8 +27,7 @@ function Feed() {
       <FlipMove>
         {posts.map((post) => (
           <Post
-            key={post.id}
-            id={post.id}
+            key={post.id.toString()}
             displayName={post.displayName}
             username={post.username}
             verified={post.verified}

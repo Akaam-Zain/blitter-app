@@ -1,10 +1,12 @@
 .sidebar {
   border-right: 1px solid var(--blitter-background);
-  flex: 0.3;
+  flex: 0.2;
   /* min-width: 250px; */
   margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  top: 0;
+  position: sticky;
 }
 
 .sidebar__bleet {
@@ -22,4 +24,23 @@
   font-size: 30px !important;
   margin-left: 20px;
   margin-bottom: 20px;
+}
+
+.profile__icon {
+  margin-top: 30px;
+  height: fit-content !important;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.profile__iconAvatar {
+  width: 50px !important;
+  height: fit-content !important;
+}
+.profile__iconName {
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
 }

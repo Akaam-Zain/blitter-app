@@ -1,23 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "@material-ui/core";
 import "./stlyes/BleetBox.css";
 import db from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+import firebase from "firebase";
+import { useHistory } from "react-router";
 
 function BleetBox() {
   const [bleetMessage, setBleetMessage] = useState("");
   const [bleetImage, setBleetImage] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const history = useHistory();
+  const photoURL = user?.photoURL;
+
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("users")
+        .where("uid", "==", user?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/");
+    fetchUserName();
+  }, [user, loading]);
 
   const sendTweet = (e) => {
     e.preventDefault();
 
     db.collection("posts").add({
-      displayName: "Rafeh Qazi",
-      username: "cleverqazi",
+      displayName: name,
+      username: user?.displayName,
       verified: true,
       text: bleetMessage,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       image: bleetImage,
-      avatar:
-        "https://media-exp1.licdn.com/dms/image/C5603AQFa2X0iNTTvgQ/profile-displayphoto-shrink_200_200/0/1616395735382?e=1634169600&v=beta&t=6wuJKcTEzzmvkl-LLorY5NwHl-J2Zbf7ejBUh6rEGfg",
+      avatar: photoURL,
     });
 
     setBleetMessage("");
@@ -28,7 +56,8 @@ function BleetBox() {
     <div className="bleetBox">
       <form>
         <div className="bleetBox__input">
-          <Avatar src="https://media-exp1.licdn.com/dms/image/C5603AQFa2X0iNTTvgQ/profile-displayphoto-shrink_200_200/0/1616395735382?e=1634169600&v=beta&t=6wuJKcTEzzmvkl-LLorY5NwHl-J2Zbf7ejBUh6rEGfg" />
+          <Avatar src={photoURL} />
+
           <input
             onChange={(e) => setBleetMessage(e.target.value)}
             value={bleetMessage}

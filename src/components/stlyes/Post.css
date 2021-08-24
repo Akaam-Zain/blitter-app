@@ -10,6 +10,9 @@
   border-radius: 20px;
   width: 90%;
 }
+.post__body {
+  width: 90%;
+}
 
 .post__footer {
   display: flex;
@@ -39,6 +42,10 @@
   font-weight: 600;
   font-size: 14px;
   color: grey;
+}
+
+.post__moreIcon {
+  padding-left: 300px;
 }
 
 .post__avatar {

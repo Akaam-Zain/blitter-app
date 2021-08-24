@@ -4,18 +4,19 @@ import LoginPage from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 
 import "./App.css";
+import LoginScreen from "./screens/LoginScreen";
 
 function App() {
   return (
     <div className="app">
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" component={LoginScreen}>
             {/** Login */}
 
             <LoginPage />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             {/*Home */}
             <HomeScreen />
           </Route>

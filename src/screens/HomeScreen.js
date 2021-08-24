@@ -4,9 +4,7 @@ import Feed from "../components/Feed";
 import Widget from "../components/Widget";
 import "./styles/HomeScreen.css";
 
-function HomeScreen(user) {
-  console.log(user);
-
+function HomeScreen() {
   return (
     <div className="homeScreen">
       <Sidebar />
