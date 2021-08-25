@@ -16,7 +16,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 import MoreToggle from "./MoreToggle";
-
+import ProfileButton from "./ProfileButton";
 // import HomeIcon from "@material-ui/icons/Home";
 
 function Sidebar() {
@@ -28,25 +28,34 @@ function Sidebar() {
       <TwitterIcon className="sidebar__blitterIcon" />
 
       {/** SidebarOption */}
-      <SidebarOption active Icon={HomeIcon} text="Home" />
-      <SidebarOption Icon={SearchIcon} text="Explore" />
-      <SidebarOption Icon={NotificationIcon} text="Notifications" />
-      <SidebarOption Icon={MessageIcon} text="Messages" />
-      <SidebarOption Icon={BookmarkIcon} text="Bookmarks" />
-      <SidebarOption Icon={ListIcon} text="Lists" />
-      <SidebarOption Icon={ProfileIcon} text="Profile" />
-      <SidebarOption Icon={MoreIcon} text="More" />
+
+      <SidebarOption active Icon={HomeIcon} text="Home" path="/home" />
+      <SidebarOption Icon={SearchIcon} text="Explore" path="/explore" />
+      <SidebarOption
+        Icon={NotificationIcon}
+        text="Notifications"
+        path="/notifications"
+      />
+      <SidebarOption Icon={MessageIcon} text="Messages" path="/messages" />
+      <SidebarOption Icon={BookmarkIcon} text="Bookmarks" path="/bookmarks" />
+      <SidebarOption Icon={ListIcon} text="Lists" path="/lists" />
+      <SidebarOption Icon={ProfileIcon} text="Profile" path="/profile" />
+      <SidebarOption Icon={MoreIcon} text="More" path="/more" />
       <Button variant="outlined" className="sidebar__bleet" fullWidth>
         Bleet
       </Button>
 
       {/** Profile Icon */}
-      <div className="profile__icon">
-        <Avatar className="profile__iconAvatar" src={user?.photoURL}></Avatar>
-        <Link to="#" className="profile__iconName">
-          {user?.displayName}
-        </Link>
-        <MoreToggle />
+      <div>
+        <ProfileButton
+          photoURL={user?.photoURL}
+          displayName={user?.displayName}
+        >
+          <Avatar className="profile__iconAvatar" src={user?.photoURL}></Avatar>
+          <Link to="#" className="profile__iconName">
+            {user?.displayName}
+          </Link>
+        </ProfileButton>
       </div>
     </div>
   );

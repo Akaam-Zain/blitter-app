@@ -1,0 +1,14 @@
+.profile__button {
+  margin-top: 50px !important;
+  border-radius: 100px !important;
+  justify-content: space-between !important;
+}
+
+.profile__avatar {
+  width: 50px !important;
+  height: fit-content !important;
+}
+
+h4 {
+  font-size: 12px;
+}

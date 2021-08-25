@@ -26,13 +26,6 @@
   margin-bottom: 20px;
 }
 
-.profile__icon {
-  margin-top: 30px;
-  height: fit-content !important;
-  display: inline-flex;
-  justify-content: space-between;
-}
-
 .profile__iconAvatar {
   width: 50px !important;
   height: fit-content !important;

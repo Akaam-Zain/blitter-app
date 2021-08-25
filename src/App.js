@@ -5,6 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 
 import "./App.css";
 import LoginScreen from "./screens/LoginScreen";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -16,9 +17,15 @@ function App() {
 
             <LoginPage />
           </Route>
+          {/*Home */}
           <Route exact path="/home">
-            {/*Home */}
             <HomeScreen />
+          </Route>
+          <Route exact path="/profile">
+            <HomeScreen />
+          </Route>
+          <Route exact path="/signup">
+            <LoginPage />
           </Route>
         </Switch>
       </Router>

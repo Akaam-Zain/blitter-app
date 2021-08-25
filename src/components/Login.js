@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import "./stlyes/Login.css";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, Router, useHistory, useLocation } from "react-router-dom";
 import { googleAuthProvider } from "../service/SocialAuthMethods";
 import { useAuthState } from "react-firebase-hooks/auth";
 import socialMediaAuth from "../service/SocialAuth";
@@ -12,6 +12,7 @@ import {
   signInWithGoogle,
 } from "../service/AuthContext";
 import { LinearProgress } from "@material-ui/core";
+import HomeScreen from "../screens/HomeScreen";
 
 function Login() {
   const history = useHistory();
@@ -36,7 +37,7 @@ function Login() {
     if (loading) {
       return <LinearProgress />;
     }
-    if (user) history.replace("/home");
+    // if (user) history.replace("/home");
   }, [user, loading]);
 
   return (
