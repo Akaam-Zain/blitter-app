@@ -8,6 +8,7 @@ import Publish from "@material-ui/icons/Publish";
 import "./stlyes/Post.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import CommentDialog from "./CommentDialog";
 
 const Post = forwardRef(
   ({ id, displayName, username, verified, text, image, avatar }, ref) => {
@@ -55,10 +56,15 @@ const Post = forwardRef(
           </div>
           <img className="post__img" src={image} alt="" />
           <div className="post__footer">
-            <ChatBubbleOutlineIcon />
+            <CommentDialog
+              postId={id}
+              displayName={displayName}
+              username={username}
+              avatar={avatar}
+            />
+            <RepeatIcon />
             <FavoriteBorderIcon />
             <Publish />
-            <RepeatIcon />
           </div>
         </div>
       </div>

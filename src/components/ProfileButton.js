@@ -4,6 +4,7 @@ import MoreHoriz from "@material-ui/icons/MoreHoriz";
 import { Menu, MenuItem } from "@material-ui/core";
 
 import "./stlyes/ProfileButton.css";
+import { auth } from "../firebase";
 
 function ProfileButton({ displayName, photoURL }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -15,6 +16,10 @@ function ProfileButton({ displayName, photoURL }) {
   const openMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  function logoutUser() {
+    auth.signOut();
+  }
 
   return (
     <div>
@@ -31,7 +36,7 @@ function ProfileButton({ displayName, photoURL }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={logoutUser}>Logout</MenuItem>
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>Subscribe</MenuItem>
       </Menu>

@@ -1,7 +1,6 @@
 .homeScreen {
   display: flex;
   margin-left: auto;
-  max-width: 1300px;
   margin-right: auto;
   padding: 0 10px;
 }

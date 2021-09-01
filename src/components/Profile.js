@@ -49,11 +49,11 @@ function Profile() {
           </p>
           <br />
           <p>
-            <span style={{ fontWeight: "bold", paddingRight: "5px" }}>43 </span>
+            <span>43 </span>
             Following
           </p>
           <p>
-            <span style={{ fontWeight: "bold", paddingRight: "5px" }}>44 </span>
+            <span>44 </span>
             Followers
           </p>
         </div>

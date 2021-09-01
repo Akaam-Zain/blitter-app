@@ -54,6 +54,11 @@
   padding: 15px;
 }
 
+.profile__userdetails > p span {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
 .profile__avatar1 {
   width: 140px !important;
   height: fit-content !important;
