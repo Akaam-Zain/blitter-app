@@ -1,0 +1,43 @@
+.reply__dialog {
+  display: flex !important;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+.close__dialog {
+  cursor: pointer;
+}
+
+.bleet__authorName {
+  font-weight: bold !important;
+}
+
+.bleet__authorName > span {
+  font-weight: bold !important;
+  color: grey;
+}
+
+.bleet__author * {
+  padding-left: 20px;
+}
+
+.bleet__reply {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.user__avatar {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.reply__actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 30px 15px 30px !important;
+  cursor: pointer;
+}
+
+.reply__icons {
+  padding: 0px 15px;
+}

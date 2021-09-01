@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import { Avatar } from "@material-ui/core";
 import VerifiedIcon from "@material-ui/icons/VerifiedUser";
-import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import Publish from "@material-ui/icons/Publish";
