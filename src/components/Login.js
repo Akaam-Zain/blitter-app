@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import "./stlyes/Login.css";
+import { useSelector, useDispatch } from "react-redux";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { Link, Router, useHistory, useLocation } from "react-router-dom";
 import { googleAuthProvider } from "../service/SocialAuthMethods";
@@ -12,21 +13,22 @@ import {
   signInWithGoogle,
 } from "../service/AuthContext";
 import { LinearProgress } from "@material-ui/core";
-import HomeScreen from "../screens/HomeScreen";
+import { setUser } from "../redux/userSlice";
 
 function Login() {
   const history = useHistory();
+  // const email = "";
+  // const password = "";
+  // const name = "";
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [user, loading, error] = useAuthState(auth);
   const location = useLocation();
 
-  const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
-  };
+  const [user, loading, error] = useAuthState(auth);
+
+  // const register = () => {
+  //   if (!name) alert("Please enter name");
+  //   registerWithEmailAndPassword(name, email, password);
+  // };
 
   const onGoogleSignIn = async (provider) => {
     const user = await socialMediaAuth(provider);
@@ -37,7 +39,7 @@ function Login() {
     if (loading) {
       return <LinearProgress />;
     }
-    // if (user) history.replace("/home");
+    if (user) history.replace("/home");
   }, [user, loading]);
 
   return (

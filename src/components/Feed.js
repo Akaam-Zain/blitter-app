@@ -4,6 +4,7 @@ import Post from "./Post";
 import "./stlyes/Feed.css";
 import db from "../firebase";
 import FlipMove from "react-flip-move";
+import { useSelector } from "react-redux";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -25,17 +26,19 @@ function Feed() {
       </div>
       {/** Post **/}
       <FlipMove>
-        {posts.map((post) => (
-          <Post
-            key={post.id.toString()}
-            displayName={post.displayName}
-            username={post.username}
-            verified={post.verified}
-            text={post.text}
-            avatar={post.avatar}
-            image={post.image}
-          />
-        ))}
+        {posts.map((post) => {
+          return (
+            <Post
+              key={post.id.toString()}
+              displayName={post.displayName}
+              username={post.username}
+              verified={post.verified}
+              text={post.text}
+              avatar={post.avatar}
+              image={post.image}
+            />
+          );
+        })}
       </FlipMove>
     </div>
   );
