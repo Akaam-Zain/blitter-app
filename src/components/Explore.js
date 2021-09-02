@@ -3,12 +3,17 @@ import React from "react";
 import Post from "./Post";
 import FlipMove from "react-flip-move";
 import { useSelector } from "react-redux";
+import Sidebar from "./Sidebar";
+import Widget from "./Widget";
+import "./stlyes/Explore.css";
 
 function Explore() {
-  const posts = useSelector((state) => state.post.post);
+  const posts = useSelector((state) => state.post);
 
   return (
-    <div>
+    <div className="explore">
+      {console.log("This is explore")}
+
       {posts.map((post) => {
         console.log(post.avatar, post, post.verified);
 

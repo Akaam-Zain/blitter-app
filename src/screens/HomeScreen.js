@@ -20,6 +20,8 @@ function HomeScreen() {
           return <Feed />;
         } else if (location.pathname === "/profile") {
           return <Profile />;
+        } else if (location.pathname === "/explore") {
+          return <Explore />;
         }
       })()}
 

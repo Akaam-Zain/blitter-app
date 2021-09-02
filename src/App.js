@@ -13,18 +13,20 @@ import Explore from "./components/Explore";
 
 function App() {
   const dispatch = useDispatch();
+  let posts;
+  React.useEffect(() => {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        dispatch(setUser(user));
+      } else {
+      }
+    });
+  }, []);
 
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      dispatch(setUser(user));
-    } else {
-      console.log("No user logged in");
-    }
-  });
-
-  useEffect(() => {
+  React.useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
-      return dispatch(setPosts(snapshot.docs.doc.data()));
+      const posts = snapshot.docs.map((doc) => doc.data());
+      dispatch(setPosts(posts));
     });
   }, []);
 
@@ -44,11 +46,11 @@ function App() {
           <Route exact path="/profile">
             <HomeScreen />
           </Route>
+          <Route exact path="/explore">
+            <HomeScreen />
+          </Route>
           <Route exact path="/signup">
             <LoginPage />
-          </Route>
-          <Route exact path="/explore">
-            <Explore />
           </Route>
         </Switch>
       </Router>
