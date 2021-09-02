@@ -36,9 +36,9 @@ function Sidebar() {
         text="Notifications"
         path="/notifications"
       />
-      <SidebarOption Icon={MessageIcon} text="Messages" path="/messages" />
+      {/* <SidebarOption Icon={MessageIcon} text="Messages" path="/messages" />
       <SidebarOption Icon={BookmarkIcon} text="Bookmarks" path="/bookmarks" />
-      <SidebarOption Icon={ListIcon} text="Lists" path="/lists" />
+      <SidebarOption Icon={ListIcon} text="Lists" path="/lists" /> */}
       <SidebarOption Icon={ProfileIcon} text="Profile" path="/profile" />
       <SidebarOption Icon={MoreIcon} text="More" path="/more" />
       <Button variant="outlined" className="sidebar__bleet" fullWidth>

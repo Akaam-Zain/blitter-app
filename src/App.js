@@ -49,6 +49,9 @@ function App() {
           <Route exact path="/explore">
             <HomeScreen />
           </Route>
+          <Route exact path="/notifications">
+            <HomeScreen />
+          </Route>
           <Route exact path="/signup">
             <LoginPage />
           </Route>

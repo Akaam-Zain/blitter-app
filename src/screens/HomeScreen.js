@@ -7,6 +7,7 @@ import "./styles/HomeScreen.css";
 import { useLocation } from "react-router-dom";
 import Profile from "../components/Profile";
 import Explore from "../components/Explore";
+import Notifications from "../components/Notifications";
 
 function HomeScreen() {
   const location = useLocation();
@@ -22,6 +23,8 @@ function HomeScreen() {
           return <Profile />;
         } else if (location.pathname === "/explore") {
           return <Explore />;
+        } else if (location.pathname === "/notifications") {
+          return <Notifications />;
         }
       })()}
 

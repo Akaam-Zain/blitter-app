@@ -1,0 +1,25 @@
+.notifications {
+  flex: 0.5;
+  border-right: 1px solid var(--twitter-background);
+  min-width: fit-content;
+  overflow-y: auto;
+}
+
+/* Hides scroll for Chrome and Opera*/
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hides scroll for Chrome and Opera*/
+.feed::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.notifications__header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: 1px solid var(--blitter-background);
+  padding: 15px 20px;
+  background-color: white;
+}

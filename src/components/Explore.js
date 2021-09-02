@@ -4,7 +4,7 @@ import Post from "./Post";
 import FlipMove from "react-flip-move";
 import { useSelector } from "react-redux";
 import Sidebar from "./Sidebar";
-import Widget from "./Widget";
+
 import "./stlyes/Explore.css";
 
 function Explore() {
