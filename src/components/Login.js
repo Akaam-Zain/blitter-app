@@ -13,7 +13,6 @@ import {
   signInWithGoogle,
 } from "../service/AuthContext";
 import { LinearProgress } from "@material-ui/core";
-import { setUser } from "../redux/userSlice";
 
 function Login() {
   const history = useHistory();

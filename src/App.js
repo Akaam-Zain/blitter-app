@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useHistory } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import LoginPage from "./screens/LoginScreen";
@@ -9,11 +9,9 @@ import "./App.css";
 import LoginScreen from "./screens/LoginScreen";
 import db from "./firebase";
 import { setPosts } from "./redux/postSlice";
-import Explore from "./components/Explore";
 
 function App() {
   const dispatch = useDispatch();
-  let posts;
   React.useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {

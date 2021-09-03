@@ -10,7 +10,7 @@ import { Typography } from "@material-ui/core";
 import CommentDialog from "./CommentDialog";
 
 const Post = forwardRef(
-  ({ id, displayName, username, verified, text, image, avatar }, ref) => {
+  ({ postId, displayName, username, verified, text, image, avatar }, ref) => {
     const ethereum_reg = /0x[a-fA-F0-9]{40}/;
     let split_text = text.split(" ");
 
@@ -56,10 +56,12 @@ const Post = forwardRef(
           <img className="post__img" src={image} alt="" />
           <div className="post__footer">
             <CommentDialog
-              postId={id}
+              postId={postId}
               displayName={displayName}
               username={username}
               avatar={avatar}
+              text={text}
+              verified={verified}
             />
             <RepeatIcon />
             <FavoriteBorderIcon />

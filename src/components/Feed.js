@@ -4,7 +4,6 @@ import Post from "./Post";
 import "./stlyes/Feed.css";
 import db from "../firebase";
 import FlipMove from "react-flip-move";
-import { useSelector } from "react-redux";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -13,7 +12,13 @@ function Feed() {
     db.collection("posts")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) =>
-        setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+        setPosts(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            comment: " ",
+            ...doc.data(),
+          }))
+        )
       );
   }, []);
 
@@ -30,6 +35,7 @@ function Feed() {
           return (
             <Post
               key={post.id.toString()}
+              postId={post.id}
               displayName={post.displayName}
               username={post.username}
               verified={post.verified}
