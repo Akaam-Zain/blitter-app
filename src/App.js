@@ -1,4 +1,4 @@
-import React, { useEffect, useHistory } from "react";
+import React, { useEffect, useHistory, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import LoginPage from "./screens/LoginScreen";
@@ -23,7 +23,12 @@ function App() {
 
   React.useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
-      const posts = snapshot.docs.map((doc) => doc.data());
+      const posts = snapshot.docs.map((doc) => {
+        const post = doc.data();
+        post.id = doc.id;
+        return post;
+      });
+
       dispatch(setPosts(posts));
     });
   }, []);

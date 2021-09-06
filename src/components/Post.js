@@ -1,4 +1,5 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Avatar } from "@material-ui/core";
 import VerifiedIcon from "@material-ui/icons/VerifiedUser";
 import RepeatIcon from "@material-ui/icons/Repeat";
@@ -8,11 +9,39 @@ import "./stlyes/Post.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import CommentDialog from "./CommentDialog";
+import firebase from "firebase";
+import db from "../firebase";
 
 const Post = forwardRef(
-  ({ postId, displayName, username, verified, text, image, avatar }, ref) => {
+  (
+    { postId, displayName, username, verified, text, image, avatar, like },
+    ref
+  ) => {
     const ethereum_reg = /0x[a-fA-F0-9]{40}/;
     let split_text = text.split(" ");
+
+    // const posts = useSelector((state) =>
+    //   state.post.find(([]) => element === postId)
+    // );
+    // console.log(posts);
+
+    const [isLiked, setlike] = useState(like);
+
+    function handleLike() {
+      if (!isLiked) {
+        db.collection("posts").doc(postId).update({
+          like: true,
+        });
+
+        setlike(true);
+      } else {
+        db.collection("posts").doc(postId).update({
+          like: false,
+        });
+
+        setlike(false);
+      }
+    }
 
     return (
       <div className="post" ref={ref}>
@@ -64,7 +93,12 @@ const Post = forwardRef(
               verified={verified}
             />
             <RepeatIcon />
-            <FavoriteBorderIcon />
+            <FavoriteBorderIcon
+              onClick={handleLike}
+              style={{
+                color: isLiked ? "red" : "",
+              }}
+            />
             <Publish />
           </div>
         </div>

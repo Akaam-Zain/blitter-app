@@ -46,6 +46,8 @@ function BleetBox() {
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       image: bleetImage,
       avatar: photoURL,
+      comment: [],
+      like: false,
     });
 
     setBleetMessage("");

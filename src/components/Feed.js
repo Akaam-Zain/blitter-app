@@ -15,7 +15,7 @@ function Feed() {
         setPosts(
           snapshot.docs.map((doc) => ({
             id: doc.id,
-            comment: " ",
+
             ...doc.data(),
           }))
         )
@@ -42,6 +42,7 @@ function Feed() {
               text={post.text}
               avatar={post.avatar}
               image={post.image}
+              like={post.like}
             />
           );
         })}

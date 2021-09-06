@@ -39,15 +39,12 @@ function CommentDialog({ postId, displayName, username, avatar, text }) {
     comment_input = ref?.current?.value;
 
     //add it to the post comment object
-    console.log(postId);
+
     db.collection("posts")
       .doc(postId)
       .update({
         comment: firebase.firestore.FieldValue.arrayUnion(comment_input),
       });
-    // db.collection("posts").doc({ postId }).set({
-    //   username: "Hello",
-    // });
   };
   const user = useSelector((state) => state.user);
 
